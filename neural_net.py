@@ -13,8 +13,9 @@ class NeuralNet:
         self.weights = weights
         self.biases = biases
         self.act = act   #is this evil? activation function
+        # also should have derivative of the activation function
         
-    def test(self):
+    def test(self): #prints weights n biases
         num_layers = len(self.weights)
         for x in range(num_layers):
             layer = self.weights[x]
@@ -65,7 +66,7 @@ class NeuralNet:
         
     # def add_hidden(self, layer):
         
-    def train(self, target, learning_rate):
+    def train(self, target, learning_rate): #backpropagation
         nodes = self.nodes
         for x in reversed(range(1, len(nodes))):
             output = np.array(nodes[x])
